@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Qaza Calculator - Sacred Devotion</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Amiri&amp;family=Noto+Nastaliq+Urdu&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#003629",
+                    "surface-variant": "#e4e2dd",
+                    "inverse-primary": "#9ed1bd",
+                    "outline": "#707974",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#f2f1ec",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e4e2dd",
+                    "surface-container-high": "#eae8e3",
+                    "on-secondary-fixed": "#002112",
+                    "surface-tint": "#376757",
+                    "surface-dim": "#dbdad5",
+                    "primary-container": "#1b4d3e",
+                    "surface-container": "#f0eee9",
+                    "on-primary-container": "#8abda9",
+                    "tertiary-fixed": "#ffe08f",
+                    "primary-fixed-dim": "#9ed1bd",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#93f7bf",
+                    "on-tertiary-fixed-variant": "#584400",
+                    "on-primary-fixed-variant": "#1d4f40",
+                    "surface-container-low": "#f5f3ee",
+                    "on-background": "#1b1c19",
+                    "secondary-container": "#93f7bf",
+                    "surface-bright": "#fbf9f4",
+                    "primary-fixed": "#baeed9",
+                    "tertiary-fixed-dim": "#e6c364",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#404945",
+                    "on-tertiary-container": "#4f3d00",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#006c44",
+                    "on-secondary-fixed-variant": "#005232",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#755b00",
+                    "tertiary-container": "#c8a74b",
+                    "on-tertiary-fixed": "#241a00",
+                    "outline-variant": "#c0c9c3",
+                    "background": "#fbf9f4",
+                    "secondary-fixed-dim": "#77daa4",
+                    "inverse-surface": "#30312e",
+                    "surface": "#fbf9f4",
+                    "on-surface": "#1b1c19",
+                    "on-secondary-container": "#007349",
+                    "on-primary-fixed": "#002117"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "12px",
+                    "2xl": "20px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "48px",
+                    "stack-md": "16px",
+                    "container-padding-mobile": "20px",
+                    "container-padding-desktop": "40px",
+                    "unit": "8px",
+                    "stack-sm": "8px",
+                    "stack-lg": "32px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "urdu-script": ["Noto Nastaliq Urdu"],
+                    "display-lg": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "title-md": ["Manrope"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "body-sm": ["Manrope"],
+                    "label-caps": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "arabic-script": ["Amiri"]
+            },
+            "fontSize": {
+                    "urdu-script": ["22px", {"lineHeight": "52px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "arabic-script": ["28px", {"lineHeight": "48px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            background-color: #FAF8F3; /* Ivory White */
+            background-image: radial-gradient(#1B4D3E05 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .glass-card {
+            background: rgba(251, 249, 244, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(27, 77, 62, 0.05);
+        }
+        .qaza-gradient {
+            background: linear-gradient(135deg, #1B4D3E 0%, #003629 100%);
+        }
+        .milestone-locked {
+            filter: grayscale(1) opacity(0.5);
+        }
+        @keyframes pulse-green {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(76, 175, 125, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(76, 175, 125, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(76, 175, 125, 0); }
+        }
+        .animate-pulse-green {
+            animation: pulse-green 2s infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-lg text-on-background pb-32">
+<!-- Top AppBar -->
+<header class="bg-surface dark:bg-background fixed top-0 w-full z-40 flex justify-between items-center px-container-padding-mobile py-stack-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold">
+                UP
+            </div>
+<div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-semibold text-primary">Sacred Devotion</h1>
+</div>
+</div>
+<button class="p-2 rounded-full hover:opacity-80 transition-opacity duration-200">
+<span class="material-symbols-outlined text-primary">settings</span>
+</button>
+</header>
+<main class="mt-20 px-container-padding-mobile space-y-stack-lg max-w-3xl mx-auto">
+<!-- Header Section -->
+<section class="space-y-1">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary flex items-baseline gap-2">
+                    Qaza Calculator 
+                    <span class="font-urdu-script text-[18px] opacity-60">قضاء کیلکولیٹر</span>
+</h2>
+<span class="material-symbols-outlined text-outline cursor-help">info</span>
+</div>
+<p class="font-body-sm text-on-surface-variant">Missed prayers are tracked automatically from your attendance</p>
+</section>
+<!-- Summary Banner -->
+<section class="qaza-gradient rounded-2xl p-6 text-on-primary shadow-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[120px] fill-icon">history_edu</span>
+</div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="font-label-caps text-on-primary/70 mb-1 uppercase tracking-wider">Total Qaza Remaining</p>
+<h3 class="text-5xl font-bold text-white">11</h3>
+</div>
+<div class="text-right">
+<p class="font-label-caps text-on-primary/70 mb-1 uppercase tracking-wider">Completed</p>
+<h3 class="text-3xl font-semibold text-tertiary-fixed">45</h3>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-4 border-t border-white/10 font-body-sm text-on-primary/80">
+<span class="material-symbols-outlined text-tertiary-fixed text-sm">calendar_today</span>
+                    Tracking since: 12 Jan 2024
+                </div>
+</div>
+</section>
+<!-- Auto-Sync Indicator -->
+<div class="flex items-center gap-3 px-1">
+<div class="w-2 h-2 rounded-full bg-secondary animate-pulse-green"></div>
+<p class="font-body-sm text-secondary font-medium">Auto-syncing with your attendance ✓</p>
+</div>
+<!-- Tabs -->
+<div class="flex p-1 bg-surface-container rounded-xl">
+<button class="flex-1 py-3 px-4 rounded-lg font-title-md text-title-md bg-white shadow-sm text-primary transition-all">Pending</button>
+<button class="flex-1 py-3 px-4 rounded-lg font-title-md text-title-md text-on-surface-variant hover:bg-white/50 transition-all">Completed</button>
+</div>
+<!-- Per-Prayer Cards -->
+<div class="space-y-4">
+<!-- Fajr - Expanded -->
+<div class="bg-white rounded-2xl border border-primary/5 shadow-sm overflow-hidden transition-all duration-300">
+<div class="p-5 flex items-center justify-between cursor-pointer" onclick="this.parentElement.classList.toggle('ring-2'); this.parentElement.classList.toggle('ring-tertiary-container')">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<h4 class="font-title-md text-title-md text-primary">Fajr</h4>
+<span class="font-urdu-script text-[14px] leading-none opacity-50">فجر</span>
+</div>
+<div class="flex gap-4">
+<span class="text-error font-bold font-body-sm">3 Pending</span>
+<span class="text-secondary font-medium font-body-sm">12 Completed</span>
+</div>
+</div>
+<div class="text-right flex flex-col items-end gap-2">
+<span class="font-label-caps text-secondary">80% COMPLETE</span>
+<div class="w-24 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[80%]"></div>
+</div>
+</div>
+</div>
+<!-- Expanded Content -->
+<div class="bg-surface-container-low px-5 pb-5 pt-2 space-y-4">
+<div class="flex justify-between items-center pb-2 border-b border-outline-variant/30">
+<h5 class="font-label-caps text-outline uppercase">Missed Dates</h5>
+<button class="text-tertiary font-bold font-body-sm hover:underline">Offer All</button>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between bg-white p-3 rounded-xl border border-outline-variant/20 shadow-sm">
+<span class="font-body-lg text-on-surface">Oct 24, 2024</span>
+<button class="bg-tertiary-container hover:opacity-90 text-on-tertiary-container px-4 py-1.5 rounded-full font-label-caps transition-all">Mark as Offered</button>
+</div>
+<div class="flex items-center justify-between bg-white p-3 rounded-xl border border-outline-variant/20 shadow-sm opacity-60">
+<span class="font-body-lg text-on-surface">Oct 23, 2024</span>
+<button class="bg-tertiary-container text-on-tertiary-container px-4 py-1.5 rounded-full font-label-caps">Mark as Offered</button>
+</div>
+<div class="flex items-center justify-between bg-white p-3 rounded-xl border border-outline-variant/20 shadow-sm opacity-40">
+<span class="font-body-lg text-on-surface">Oct 22, 2024</span>
+<button class="bg-tertiary-container text-on-tertiary-container px-4 py-1.5 rounded-full font-label-caps">Mark as Offered</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Other Prayers - Collapsed -->
+<div class="bg-white rounded-2xl border border-primary/5 shadow-sm p-5 flex items-center justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<h4 class="font-title-md text-title-md text-primary">Dhuhr</h4>
+<span class="font-urdu-script text-[14px] leading-none opacity-50">ظہر</span>
+</div>
+<div class="flex gap-4">
+<span class="text-error font-bold font-body-sm">2 Pending</span>
+<span class="text-secondary font-medium font-body-sm">8 Completed</span>
+</div>
+</div>
+<div class="text-right flex flex-col items-end gap-2">
+<span class="font-label-caps text-secondary">80% COMPLETE</span>
+<div class="w-24 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[80%]"></div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-2xl border border-primary/5 shadow-sm p-5 flex items-center justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<h4 class="font-title-md text-title-md text-primary">Asr</h4>
+<span class="font-urdu-script text-[14px] leading-none opacity-50">عصر</span>
+</div>
+<div class="flex gap-4">
+<span class="text-error font-bold font-body-sm">4 Pending</span>
+<span class="text-secondary font-medium font-body-sm">6 Completed</span>
+</div>
+</div>
+<div class="text-right flex flex-col items-end gap-2">
+<span class="font-label-caps text-secondary">60% COMPLETE</span>
+<div class="w-24 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[60%]"></div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-2xl border border-primary/5 shadow-sm p-5 flex items-center justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<h4 class="font-title-md text-title-md text-primary">Maghrib</h4>
+<span class="font-urdu-script text-[14px] leading-none opacity-50">مغرب</span>
+</div>
+<div class="flex gap-4">
+<span class="text-error font-bold font-body-sm">1 Pending</span>
+<span class="text-secondary font-medium font-body-sm">14 Completed</span>
+</div>
+</div>
+<div class="text-right flex flex-col items-end gap-2">
+<span class="font-label-caps text-secondary">93% COMPLETE</span>
+<div class="w-24 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[93%]"></div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-2xl border border-primary/5 shadow-sm p-5 flex items-center justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<h4 class="font-title-md text-title-md text-primary">Isha</h4>
+<span class="font-urdu-script text-[14px] leading-none opacity-50">عشاء</span>
+</div>
+<div class="flex gap-4">
+<span class="text-error font-bold font-body-sm">1 Pending</span>
+<span class="text-secondary font-medium font-body-sm">5 Completed</span>
+</div>
+</div>
+<div class="text-right flex flex-col items-end gap-2">
+<span class="font-label-caps text-secondary">83% COMPLETE</span>
+<div class="w-24 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[83%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Milestone Badges -->
+<section class="space-y-stack-md pt-4">
+<h4 class="font-title-md text-title-md text-primary">Your Achievements</h4>
+<div class="grid grid-cols-4 gap-4">
+<div class="flex flex-col items-center gap-2">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center border-2 border-primary/10 shadow-inner">
+<span class="material-symbols-outlined text-primary text-3xl fill-icon">emoji_events</span>
+</div>
+<span class="font-label-caps text-center">First Step</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-16 h-16 rounded-full bg-tertiary-fixed flex items-center justify-center border-2 border-tertiary/10 shadow-inner">
+<span class="material-symbols-outlined text-tertiary text-3xl fill-icon">military_tech</span>
+</div>
+<span class="font-label-caps text-center">10 Down</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center border-2 border-primary/10 shadow-inner">
+<span class="material-symbols-outlined text-primary text-3xl fill-icon">star_half</span>
+</div>
+<span class="font-label-caps text-center">7-Day Streak</span>
+</div>
+<div class="flex flex-col items-center gap-2 milestone-locked">
+<div class="w-16 h-16 rounded-full bg-surface-variant flex items-center justify-center border-2 border-outline/10 shadow-inner">
+<span class="material-symbols-outlined text-outline text-3xl">verified_user</span>
+</div>
+<span class="font-label-caps text-center">Clean Slate</span>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-24 right-6 bg-tertiary-container text-on-tertiary-container shadow-xl rounded-2xl p-4 flex items-center gap-3 transition-transform hover:scale-105 active:scale-95 z-40">
+<span class="material-symbols-outlined">add</span>
+<span class="font-title-md text-title-md pr-2">Log Qaza Offered Manually</span>
+</button>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface/80 dark:bg-background/80 backdrop-blur-xl border-t border-primary/5 shadow-[0_-4px_20px_rgba(27,77,62,0.04)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-primary-fixed-dim transition-transform duration-200 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">home_max</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-primary-fixed-dim transition-transform duration-200 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-label-caps text-label-caps">Journal</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim font-bold transition-transform duration-200 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined fill-icon">history</span>
+<span class="font-label-caps text-label-caps">Qaza</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-primary-fixed-dim transition-transform duration-200 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for expandable cards
+        document.querySelectorAll('.bg-white.rounded-2xl').forEach(card => {
+            const content = card.querySelector('.bg-surface-container-low');
+            if(content) {
+                // Initialize as open for the first one as requested, closed for others
+                if(!card.classList.contains('ring-2')) {
+                    // content.classList.add('hidden');
+                }
+            }
+        });
+    </script>
+</body></html>
